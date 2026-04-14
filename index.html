@@ -27,33 +27,43 @@
         }
     }
 
-    function gerarQrPix() {
-        // let valor = document.getElementById("valorPix").value;
-        let valor = document.getElementById("valorPix").value.replace(",", ".");
+function gerarQrPix() {
+    let campoInput = document.getElementById("valorPix");
+    let valorInput = campoInput.value.replace(",", ".");
+    let valor = parseFloat(valorInput);
 
-        if (!valor || isNaN(valor) || parseFloat(valor) <= 0) {
-            alert("Informe um valor válido maior que zero.");
-            return;
-        }
-
-        fetch("pix_qrcode_valor.php?valor=" + valor)
-            .then(response => response.json())
-            .then(data => {
-
-                document.getElementById("valorExibido").innerHTML =
-                    "Valor: R$ " + parseFloat(valor).toFixed(2);
-
-                document.getElementById("qrImagem").src = data.qr;
-
-                document.getElementById("resultadoPix").style.display = "block";
-
-                document.getElementById("valorPix").value = "";
-            })
-            .catch(error => {
-                console.error("Erro:", error);
-                alert("Erro ao gerar QR Code");
-            });
+    if (isNaN(valor) || valor <= 0) {
+        alert("Por favor, insira um valor válido.");
+        return;
     }
+
+    fetch("pix_qrcode_valor.php?valor=" + valor)
+        .then(response => response.json())
+        .then(data => {
+            if (data.erro) {
+                alert(data.mensagem);
+                return;
+            }
+            
+            // 1. Atualiza a imagem com o QR Code gerado
+            const qrImg = document.getElementById("qrImagem");
+            qrImg.src = data.qr_base64;
+            
+            // 2. Exibe a área do resultado
+            document.getElementById("resultadoPix").style.display = "block";
+            document.getElementById("valorExibido").innerText = "Valor: R$ " + valor.toFixed(2);
+
+            // 3. LIMPA O INPUT (O que você solicitou)
+            campoInput.value = ""; 
+            
+            // Opcional: Remove o foco do campo para esconder o teclado no telemóvel
+            campoInput.blur();
+        })
+        .catch(err => {
+            console.error("Erro ao gerar Pix:", err);
+            alert("Erro técnico ao gerar o QR Code.");
+        });
+}
 
     function fecharPix() {
         document.getElementById("resultadoPix").style.display = "none";
