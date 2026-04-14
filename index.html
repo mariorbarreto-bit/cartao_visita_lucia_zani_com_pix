@@ -13,10 +13,52 @@
  que corresponde à versão dos arquivos, devido à cache do navegador
  que ainda não dispõe deste novo ficheiro; ir avançando uma versão-->
 
-<link rel="stylesheet" href="css/style.css?v=1.0.8">
-<script src="js/script.js?v=1.0.2"></script>
+<link rel="stylesheet" href="css/style.css?v=1.0.11">
+<script src="js/script.js?v=1.0.5"></script>
 
 </head>
+<script>
+    function togglePix() {
+        let area = document.getElementById("pixArea");
+        area.style.display = (area.style.display === "none") ? "block" : "none";
+
+        if (area.style.display === "none") {
+            fecharPix();
+        }
+    }
+
+    function gerarQrPix() {
+        // let valor = document.getElementById("valorPix").value;
+        let valor = document.getElementById("valorPix").value.replace(",", ".");
+
+        if (!valor || isNaN(valor) || parseFloat(valor) <= 0) {
+            alert("Informe um valor válido maior que zero.");
+            return;
+        }
+
+        fetch("pix_qrcode_valor.php?valor=" + valor)
+            .then(response => response.json())
+            .then(data => {
+
+                document.getElementById("valorExibido").innerHTML =
+                    "Valor: R$ " + parseFloat(valor).toFixed(2);
+
+                document.getElementById("qrImagem").src = data.qr;
+
+                document.getElementById("resultadoPix").style.display = "block";
+
+                document.getElementById("valorPix").value = "";
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+                alert("Erro ao gerar QR Code");
+            });
+    }
+
+    function fecharPix() {
+        document.getElementById("resultadoPix").style.display = "none";
+    }
+</script>
 
 <body>
 
@@ -36,9 +78,39 @@
         <button class="whatsapp">💬 WhatsApp</button>
     </a>
     <!-- NOVO BOTÃO PIX -->
-    <a href="pix_qrcode_valor.php" target="_blank">
+    <!--<a href="pix_qrcode_valor.php" target="_blank">
         <button class="pix">💳 Pagar com Pix</button>
-    </a>
+    </a>-->
+    <!-- BOTÃO PIX -->
+<button class="pix" onclick="togglePix()">💳 Pagar com Pix</button>
+
+<div id="pixArea" style="display:none; margin-top:15px;">
+
+    <input type="number" id="valorPix" name="valor" step="0.01" min="0.01" placeholder="Valor (R$)">
+
+    <button type="button" class="gerar" onclick="gerarQrPix()">Gerar QR Code</button>
+
+    <div id="resultadoPix" style="display:none; margin-top:20px; position:relative;">
+        
+        <!--<button onclick="fecharPix()" style="
+            position:absolute;
+            top:0;
+            right:0;
+            background:red;
+            color:white;
+            border:none;
+            padding:5px 10px;
+            cursor:pointer;
+        ">X</button>-->
+
+        <p id="valorExibido"></p>
+
+        <img id="qrImagem" />
+
+    </div>
+
+</div>
+
     <!--<a href="mailto:luciazani@sapo.pt">
         <button class="email">📧 Email</button>
     </a>-->
