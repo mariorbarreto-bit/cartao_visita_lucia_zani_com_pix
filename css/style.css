@@ -36,8 +36,9 @@ button {
 button:hover {
     opacity: 0.9;
 }
+/*
 .pix {
-    background-color: #32BCAD; /* cor padrão Pix */
+    background-color: #32BCAD; 
     color: #000;
     border: none;
     padding: 12px;
@@ -51,4 +52,39 @@ button:hover {
 
 .pix:hover {
     background-color: #28a99a;
+}*/
+.pix {
+    background-color: #32BCAD;
+    color: black;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#pixArea input {
+    padding: 10px;
+    width: 60%;
+    margin-right: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.gerar {
+    padding: 10px;
+    width: 60%;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#resultadoPix img {
+    margin-top: 10px;
+    width: 200px;
+}
+
+#valorExibido {
+    font-weight: bold;
 }
