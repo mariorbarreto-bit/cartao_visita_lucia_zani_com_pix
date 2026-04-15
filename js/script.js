@@ -114,7 +114,8 @@ function gerarQrPix() {
     });
 
     document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFmt.replace(".", ",");
-    campoInput.blur();
+    campoInput.value = ""; // Limpa o campo para mostrar o placeholder
+    campoInput.blur();     // Retira o foco para esconder o teclado no telemóvel
 }
 // 7. Função para Alternar a Visualização (Toggle)
 function togglePix() {
