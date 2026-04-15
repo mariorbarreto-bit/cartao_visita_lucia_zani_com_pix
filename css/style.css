@@ -3,7 +3,7 @@ body {
     background: #0f172a;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 .container {
@@ -20,13 +20,24 @@ img {
 button {
     width: 100%;
     padding: 10px;
-    margin: 8px 0;
+    /*margin: 8px 0;*/
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
     color: #fff;
 }
+
+/*.pix {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+}*/
 
 .download { background: #22c55e; /*#22c55e */}
 .whatsapp { background: #0f5328;/*#25D366*/ }
@@ -37,19 +48,6 @@ button:hover {
     opacity: 0.9;
 }
 /*
-.pix {
-    background-color: #32BCAD; 
-    color: #000;
-    border: none;
-    padding: 12px;
-    margin-top: 10px;
-    width: 100%;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
 .pix:hover {
     background-color: #28a99a;
 }*/
@@ -59,8 +57,10 @@ button:hover {
     font-weight: bold;
     border: none;
     padding: 10px;
+    /*margin: 8px 0;*/
     width: 100%;
     border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -80,6 +80,7 @@ button:hover {
     color: white;
     border-radius: 6px;
     cursor: pointer;
+    margin-top: 10px;
 }
 #resultadoPix img {
     margin-top: 10px;
