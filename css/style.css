@@ -13,7 +13,7 @@ body {
 
 img {
     width: 100%;
-    border-radius: 12px;
+    /*border-radius: 12px;*/
     margin-bottom: 10px;
 }
 
@@ -85,6 +85,27 @@ button:hover {
     width: 200px;
 }
 
+
+/* Caixa branca que envolve o QR Code */
+#qrcode {
+    background-color: #ffffff; /* Fundo branco obrigatório */
+    padding: 20px;             /* Margem interna para criar a moldura branca */
+    display: inline-block;     /* Faz a caixa ajustar-se ao tamanho do QR Code */
+    border-radius: 12px;       /* Cantos arredondados para combinar com seus botões */
+    margin-top: 10px;          /* Espaço em relação ao texto superior */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para dar destaque sobre o fundo negro */
+}
+
+/* Garante que o canvas/imagem gerado ocupe o espaço correto */
+#qrcode canvas, #qrcode img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilo para o texto do valor que aparece abaixo da caixa */
 #valorExibido {
+    color: #fff;
+    margin-top: 15px;
     font-weight: bold;
+    display: block;
 }
