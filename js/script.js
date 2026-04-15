@@ -106,11 +106,11 @@ function gerarQrPix() {
     // Geração da imagem do QR Code
     new QRCode(container, {
         text: payloadFinal,
-        width: 250,
-        height: 250,
+        width: 200,            // Tamanho do QR ligeiramente menor para caber bem na moldura
+        height: 200,
         colorDark: "#000000",
         colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.M // Nível M (Médio) oferece melhor equilíbrio de leitura
+        correctLevel: QRCode.CorrectLevel.H // Nível Alto de correção ajuda na leitura em telas
     });
 
     document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFmt.replace(".", ",");
