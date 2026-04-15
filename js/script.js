@@ -75,7 +75,7 @@ function gerarQrPix() {
     }
 
     // Dados do Recebedor
-    const chave = "5521978352349"; 
+    const chave = "+5521978352349"; 
     const nome = limparString("Lucia Zani").substring(0, 25);
     const cidade = limparString("Rio de Janeiro").substring(0, 15);
     const valorFmt = valor.toFixed(2); // Garante sempre duas casas decimais
