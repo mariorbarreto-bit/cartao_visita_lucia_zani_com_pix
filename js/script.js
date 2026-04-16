@@ -64,15 +64,29 @@ function fecharPixArea() {
 // 6. Geração do QR Code Pix
 function gerarQrPix() {
     const campoInput = document.getElementById("valorPix");
+    const minha_msg = document.getElementById("m_mensagem");
     
     // Converte vírgula em ponto para processamento matemático
     let valorStr = campoInput.value.replace(",", ".");
     let valor = parseFloat(valorStr);
 
     if (isNaN(valor) || valor <= 0) {
-        alert("Por favor, insira um valor válido.");
+        // verifica se a div está escondida
+        if (minha_msg.style.display === "none" || minha_msg.style.display === "") {
+            minha_msg.style.display = "block";
+            // ESconde os elemntos que possam ter sido criados
+            document.getElementById("resultadoPix").style.display = "none";
+            const m_qrcode = document.getElementById("qrcode");
+            m_qrcode.innerHTML = "";
+        }
+        // else {
+        //fecharPixArea();
+        //}
+        //alert("Por favor, insira um valor válido.");
         return;
     }
+    // Esconde a mensagem que porventura tenha ficado visível
+    minha_msg.style.display = "none";
 
     // Dados do Recebedor
     const chave = "+5521978352349"; 
