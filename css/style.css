@@ -111,3 +111,8 @@ button:hover {
     font-weight: bold;
     display: block;
 }
+#m_mensagem {
+    margin-top: 5px;
+    font-size: 15px;
+    color: red;
+}
