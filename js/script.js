@@ -50,15 +50,18 @@ function togglePix() {
 
 // 5. Fechar área Pix e limpar campos
 function fecharPixArea() {
-    const area = document.getElementById("pixArea");
-    const resultado = document.getElementById("resultadoPix");
+    const overlay = document.getElementById("resultadoPix");
     const containerQr = document.getElementById("qrcode");
     const campoInput = document.getElementById("valorPix");
+    const areaPixInput = document.getElementById("pixArea");
 
-    if (area) area.style.display = "none";
-    if (resultado) resultado.style.display = "none";
-    if (campoInput) campoInput.value = "";
+    if (overlay) overlay.style.display = "none";
     if (containerQr) containerQr.innerHTML = "";
+    if (campoInput) campoInput.value = "";
+    
+    // Opcional: esconde também a área de input para voltar ao estado inicial (botão verde)
+    // if (areaPixInput) areaPixInput.style.display = "none";
+
 }
 
 // 6. Geração do QR Code Pix
@@ -113,30 +116,22 @@ function gerarQrPix() {
     const payloadFinal = p + calcularCRC16(p);
 
     // Exibição dos elementos
-    document.getElementById("resultadoPix").style.display = "block";
+
+    const overlay = document.getElementById("resultadoPix");
+    overlay.style.display = "flex"; 
     const container = document.getElementById("qrcode");
-    container.innerHTML = ""; 
+    container.innerHTML = "";
 
     // Geração da imagem do QR Code
     new QRCode(container, {
         text: payloadFinal,
-        width: 200,            // Tamanho do QR ligeiramente menor para caber bem na moldura
-        height: 200,
+        width: 220,
+        height: 220,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H // Nível Alto de correção ajuda na leitura em telas
     });
-
-    document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFmt.replace(".", ",");
+    document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFmt.replace(".", ",");    
     campoInput.value = ""; // Limpa o campo para mostrar o placeholder
     campoInput.blur();     // Retira o foco para esconder o teclado no telemóvel
-}
-// 7. Função para Alternar a Visualização (Toggle)
-function togglePix() {
-    let area = document.getElementById("pixArea");
-    if (area.style.display === "none" || area.style.display === "") {
-        area.style.display = "block";
-    } else {
-        fecharPixArea();
-    }
 }
