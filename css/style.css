@@ -90,12 +90,8 @@ button:hover {
 
 /* Caixa branca que envolve o QR Code */
 #qrcode {
-    background-color: #ffffff; /* Fundo branco obrigatório */
-    padding: 20px;             /* Margem interna para criar a moldura branca */
-    display: inline-block;     /* Faz a caixa ajustar-se ao tamanho do QR Code */
-    border-radius: 12px;       /* Cantos arredondados para combinar com seus botões */
-    margin-top: 10px;          /* Espaço em relação ao texto superior */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para dar destaque sobre o fundo negro */
+    box-shadow: none !important; /* Remove a sombra se estiver dentro do modal branco */
+    padding: 0 !important;
 }
 
 /* Garante que o canvas/imagem gerado ocupe o espaço correto */
@@ -106,13 +102,41 @@ button:hover {
 
 /* Estilo para o texto do valor que aparece abaixo da caixa */
 #valorExibido {
-    color: #fff;
-    margin-top: 15px;
-    font-weight: bold;
-    display: block;
+    color: #333 !important; /* Cor escura para ler sobre o fundo branco do modal */
+    margin-bottom: 20px;
+    font-size: 1.2rem;
 }
+
 #m_mensagem {
     margin-top: 5px;
     font-size: 15px;
     color: red;
+}
+/* Estilo do Overlay (Fundo que escurece a tela) */
+.overlay-pix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo preto semi-transparente */
+    display: flex; /* Usado para centralizar com align-items e justify-content */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fica por cima de tudo */
+    cursor: pointer;
+}
+
+/* Container branco centralizado */
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 90%;
+}
+.instrucao-fechar {
+    color: #666;
+    font-size: 12px;
+    margin-top: 25px;
 }
