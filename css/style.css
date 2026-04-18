@@ -1,26 +1,23 @@
-body {
+body {/*OK*/
     font-family: Arial, sans-serif;
     background: #0f172a;
     color: #fff;
     text-align: center;
-    /*padding: 20px;*/
 }
 
-.container {
+.container {/*OK*/
     max-width: 400px;
     margin: auto;
 }
 
-img {
+img {/*OK*/
     width: 100%;
-    /*border-radius: 12px;*/
     margin-bottom: 10px;
 }
 
-button {
+button {/*OK*/
     width: 100%;
     padding: 10px;
-    /*margin: 8px 0;*/
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -28,43 +25,22 @@ button {
     color: #fff;
 }
 
-/*.pix {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    color: #fff;
-}*/
-
-.download { background: #22c55e; /*#22c55e */}
-.whatsapp { background: #0f5328;/*#25D366*/ }
-.email { background: #3b82f6; /*#3b82f6*/}
-.contact { background: #a06807; /*#f59e0b*/}
-
-button:hover {
+button:hover {/*OK*/
     opacity: 0.9;
 }
-/*
-.pix:hover {
-    background-color: #28a99a;
-}*/
-.pix {
+.pix {/*OK*/
     background-color: #32BCAD;
     color: black;
     font-weight: bold;
     border: none;
     padding: 10px;
-    /*margin: 8px 0;*/
     width: 100%;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
 }
 
-#pixArea input {
+#pixArea input {/*OK*/
     padding: 10px;
     width: 60%;
     margin-right: 5px;
@@ -72,7 +48,7 @@ button:hover {
     border: 1px solid #ccc;
 }
 
-.gerar {
+.gerar {/*OK*/
     padding: 10px;
     width: 60%;
     border: none;
@@ -82,38 +58,38 @@ button:hover {
     cursor: pointer;
     margin-top: 10px;
 }
-#resultadoPix img {
+#resultadoPix img {/*OK*/
     margin-top: 10px;
     width: 200px;
 }
 
 
 /* Caixa branca que envolve o QR Code */
-#qrcode {
+#qrcode {/*OK*/
     box-shadow: none !important; /* Remove a sombra se estiver dentro do modal branco */
     padding: 0 !important;
 }
 
 /* Garante que o canvas/imagem gerado ocupe o espaço correto */
-#qrcode canvas, #qrcode img {
+#qrcode canvas, #qrcode img {/*OK*/
     display: block;
     margin: 0 auto;
 }
 
 /* Estilo para o texto do valor que aparece abaixo da caixa */
-#valorExibido {
+#valorExibido {/*OK*/
     color: #333 !important; /* Cor escura para ler sobre o fundo branco do modal */
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
 
-#m_mensagem {
+#m_mensagem {/*OK*/
     margin-top: 5px;
     font-size: 15px;
     color: red;
 }
 /* Estilo do Overlay (Fundo que escurece a tela) */
-.overlay-pix {
+.overlay-pix { /*OK*/
     position: fixed;
     top: 0;
     left: 0;
@@ -128,14 +104,14 @@ button:hover {
 }
 
 /* Container branco centralizado */
-.modal-content {
+.modal-content {/*OK*/
     background: #fff;
     padding: 30px;
     border-radius: 15px;
     text-align: center;
     max-width: 90%;
 }
-.instrucao-fechar {
+.instrucao-fechar {/*OK*/
     color: #666;
     font-size: 12px;
     margin-top: 25px;
