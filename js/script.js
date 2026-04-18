@@ -39,29 +39,41 @@ function calcularCRC16(payload) { // OK
 }
 
 // 4. Alternar visibilidade da área Pix
-function togglePix() { // OK
+function togglePix() {
     const area = document.getElementById("pixArea");
+    const campoInput = document.getElementById("valorPix"); //
+
     if (area.style.display === "none" || area.style.display === "") {
         area.style.display = "block";
+        // O setTimeout garante que o elemento esteja visível antes de tentar dar o foco
+        setTimeout(() => {
+            campoInput.focus();
+        }, 100);
     } else {
         fecharPixArea();
     }
 }
 
 // 5. Fechar área Pix e limpar campos
-function fecharPixArea() { // OK
-    const overlay = document.getElementById("resultadoPix");
-    const containerQr = document.getElementById("qrcode");
-    const campoInput = document.getElementById("valorPix");
-    const areaPixInput = document.getElementById("pixArea");
+function fecharPixArea() {
+    const resultado = document.getElementById("resultadoPix"); //
+    const containerQr = document.getElementById("qrcode"); //
+    const campoInput = document.getElementById("valorPix"); //
+    const areaInput = document.getElementById("pixArea"); //
 
-    if (overlay) overlay.style.display = "none";
-    if (containerQr) containerQr.innerHTML = "";
-    if (campoInput) campoInput.value = "";
+    // Esconde o overlay do QR Code
+    if (resultado) resultado.style.display = "none";
     
-    // Opcional: esconde também a área de input para voltar ao estado inicial (botão verde)
-    // if (areaPixInput) areaPixInput.style.display = "none";
+    // Limpa o QR anterior
+    if (containerQr) containerQr.innerHTML = "";
 
+    // Garante que a área de input (pixArea) continua visível para o foco funcionar
+    if (areaInput) areaInput.style.display = "block";
+
+    if (campoInput) {
+        campoInput.value = ""; // Limpa o campo para o novo valor
+        campoInput.focus();    // Coloca o foco novamente no campo
+    }
 }
 
 // 6. Geração do QR Code Pix
