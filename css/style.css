@@ -12,7 +12,7 @@ body {/*OK*/
 
 img {/*OK*/
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 button {/*OK*/
@@ -39,7 +39,10 @@ button:hover {/*OK*/
     font-size: 16px;
     cursor: pointer;
 }
-
+#pixArea {
+    display:none;
+    margin-top:20px;
+}
 #pixArea input {/*OK*/
     padding: 10px;
     width: 60%;
@@ -56,7 +59,7 @@ button:hover {/*OK*/
     color: white;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 #resultadoPix img {/*OK*/
     margin-top: 10px;
