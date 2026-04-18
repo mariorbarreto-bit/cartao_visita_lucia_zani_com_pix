@@ -4,15 +4,15 @@
  */
 
 // 1. Função para download do cartão 
-function downloadImage() {
-    const link = document.createElement('a');
-    link.href = 'cartao_Lucia_Zani_terapeuta.png';
-    link.download = 'cartao_Lucia_Zani_terapeuta.png';
-    link.click();
-}
+//function downloadImage() { // Sem efeito
+  //  const link = document.createElement('a');
+  //  link.href = 'cartao_Lucia_Zani_terapeuta.png';
+  //  link.download = 'cartao_Lucia_Zani_terapeuta.png';
+  //  link.click();
+//}
 
 // 2. Limpeza de strings para o padrão Pix (remove acentos e caracteres especiais)
-function limparString(str) {
+function limparString(str) { // OK
     return str.normalize('NFD')
               .replace(/[\u0300-\u036f]/g, "")
               .replace(/[^a-zA-Z0-9 ]/g, "")
@@ -21,7 +21,7 @@ function limparString(str) {
 
 // 3. Cálculo do CRC16 (Padrão CCITT-FALSE / 0xFFFF)
 // Esta função é crítica: o uso de & 0xFFFF garante que o cálculo se mantenha em 16 bits
-function calcularCRC16(payload) {
+function calcularCRC16(payload) { // OK
     let crc = 0xFFFF;
     const polinomio = 0x1021;
 
@@ -39,7 +39,7 @@ function calcularCRC16(payload) {
 }
 
 // 4. Alternar visibilidade da área Pix
-function togglePix() {
+function togglePix() { // OK
     const area = document.getElementById("pixArea");
     if (area.style.display === "none" || area.style.display === "") {
         area.style.display = "block";
@@ -49,7 +49,7 @@ function togglePix() {
 }
 
 // 5. Fechar área Pix e limpar campos
-function fecharPixArea() {
+function fecharPixArea() { // OK
     const overlay = document.getElementById("resultadoPix");
     const containerQr = document.getElementById("qrcode");
     const campoInput = document.getElementById("valorPix");
@@ -65,7 +65,7 @@ function fecharPixArea() {
 }
 
 // 6. Geração do QR Code Pix
-function gerarQrPix() {
+function gerarQrPix() { // OK
     const campoInput = document.getElementById("valorPix");
     const minha_msg = document.getElementById("m_mensagem");
     
@@ -82,10 +82,6 @@ function gerarQrPix() {
             const m_qrcode = document.getElementById("qrcode");
             m_qrcode.innerHTML = "";
         }
-        // else {
-        //fecharPixArea();
-        //}
-        //alert("Por favor, insira um valor válido.");
         return;
     }
     // Esconde a mensagem que porventura tenha ficado visível
