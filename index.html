@@ -13,59 +13,43 @@
  que corresponde à versão dos arquivos, devido à cache do navegador
  que ainda não dispõe deste novo ficheiro; ir avançando uma versão-->
 
-<link rel="stylesheet" href="css/style.css?v=1.0.23">
-<script src="js/script.js?v=1.0.16"></script>
+<link rel="stylesheet" href="css/style.css?v=1.0.25">
+<script src="js/script.js?v=1.0.15"></script>
 <script src="js/qrcode.min.js"></script>
 
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h2>Pagamento PIX</h2>
+    <h2>Pagamento PIX</h2>
 
-    <img src="cartao_Lucia_Zani_terapeuta_outro.png" alt="Cartão de Visita">
+        <img src="cartao_Lucia_Zani_terapeuta_outro.png" alt="Cartão de Visita">
 
-    <!--<button class="download" onclick="downloadImage(); fecharPixArea();">📥 Baixar Cartão</button>
+        
+        <!-- BOTÃO PIX -->
+    <button class="pix" onclick="togglePix()">💳 Pagar com Pix</button>
 
-    <a href="contato.vcf" download>
-        <button class="contact" onclick="fecharPixArea();">📇 Salvar Contato</button>
-    </a>
+    <div id="pixArea" style="display:none; margin-top:15px;">
 
-    <a href="https://wa.me/5521978352349" target="_blank">
-        <button class="whatsapp" onclick="fecharPixArea();">💬 WhatsApp</button>
-    </a>-->
-    <!-- NOVO BOTÃO PIX -->
-    <!--<a href="pix_qrcode_valor.php" target="_blank">
-        <button class="pix">💳 Pagar com Pix</button>
-    </a>-->
-    <!-- BOTÃO PIX -->
-<button class="pix" onclick="togglePix()">💳 Pagar com Pix</button>
+        <input type="number" id="valorPix" name="valor" step="0.01" min="0.01" placeholder="Valor (R$)">
 
-<div id="pixArea" style="display:none; margin-top:15px;">
+        <button type="button" class="gerar" onclick="gerarQrPix()">Gerar QR Code</button>
 
-    <input type="number" id="valorPix" name="valor" step="0.01" min="0.01" placeholder="Valor (R$)">
+        <div id="m_mensagem" style="display:none;">Por favor, insira um valor válido!</div>
 
-    <button type="button" class="gerar" onclick="gerarQrPix()">Gerar QR Code</button>
-
-    <div id="m_mensagem" style="display:none;">Por favor, insira um valor válido!</div>
-
-    <div id="resultadoPix" class="overlay-pix" onclick="fecharPixArea()" style="display:none;">
-        <!--<div class="modal-content" onclick="event.stopPropagation()">-->
-        <div class="modal-content">
-            <p id="valorExibido"></p>
-            <div id="qrcode"></div>
-            <p class="instrucao-fechar">Clique fora ou no QR Code para fechar</p>
+        <div id="resultadoPix" class="overlay-pix" onclick="fecharPixArea()" style="display:none;">
+            <!--<div class="modal-content" onclick="event.stopPropagation()">-->
+            <div class="modal-content">
+                <p id="valorExibido"></p>
+                <div id="qrcode"></div>
+                <p class="instrucao-fechar">Clique fora ou no QR Code para fechar</p>
+            </div>
         </div>
+
     </div>
 
-</div>
-
-    <!--<a href="mailto:luciazani@sapo.pt">
-        <button class="email">📧 Email</button>
-    </a>-->
-
-</div>
+    </div>
 
 </body>
 </html>
