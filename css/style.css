@@ -43,23 +43,36 @@ button:hover {/*OK*/
     display:none;
     margin-top:20px;
 }
+
+.pix-input-group {
+    display: flex;          /* Ativa o modo de alinhamento flexível */
+    width: 100%;            /* Garante o mesmo comprimento do botão "Pagar com Pix" */
+    gap: 10px;              /* Espaço entre o input e o botão */
+    margin-top: 15px;       /* Margem superior para separar do botão de cima */
+    box-sizing: border-box;
+}
+
 #pixArea input {/*OK*/
+    flex: 1;                /* Faz com que ocupe metade do espaço (50%) */
     padding: 10px;
-    width: 60%;
-    margin-right: 5px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    width: 100%;            /* Reset da largura antiga */
+    margin-right: 0;        /* Remove a margem antiga */
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+    font-weight: 700;
 }
 
 .gerar {/*OK*/
+    flex: 1;                /* Faz com que ocupe a outra metade (50%) */
+    margin-top: 0 !important; /* REMOVE a margem que o jogava para a linha de baixo */
     padding: 10px;
-    width: 60%;
-    border: none;
+    width: 100%;            /* Reset da largura antiga */
     background-color: #444;
     color: white;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 15px;
+    box-sizing: border-box;
 }
 #resultadoPix img {/*OK*/
     margin-top: 10px;
