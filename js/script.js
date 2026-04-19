@@ -139,7 +139,14 @@ function gerarQrPix() { // OK
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H // Nível Alto de correção ajuda na leitura em telas
     });
-    document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFmt.replace(".", ",");    
+    // FORMATAR PARA EXIBIÇÃO: Usa o padrão brasileiro (ponto nos milhares e vírgula nos decimais)
+    const valorFormatadoMoeda = parseFloat(valorFmt).toLocaleString('pt-BR', { 
+        minimumFractionDigits: 2, 
+        maximumFractionDigits: 2 
+    });
+
+    document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFormatadoMoeda;
+    //document.getElementById("valorExibido").innerText = "Valor: R$ " + valorFmt.replace(".", ",");    
     campoInput.value = ""; // Limpa o campo para mostrar o placeholder
     campoInput.blur();     // Retira o foco para esconder o teclado no telemóvel
 }
