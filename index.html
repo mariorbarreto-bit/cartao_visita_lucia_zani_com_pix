@@ -13,7 +13,7 @@
  que corresponde à versão dos arquivos, devido à cache do navegador
  que ainda não dispõe deste novo ficheiro; ir avançando uma versão-->
 
-<link rel="stylesheet" href="css/style.css?v=1.0.27">
+<link rel="stylesheet" href="css/style.css?v=1.0.29">
 <script src="js/script.js?v=1.0.17"></script>
 <script src="js/qrcode.min.js"></script>
 
@@ -32,9 +32,14 @@
 
     <div id="pixArea">
 
-        <input type="number" id="valorPix" name="valor" step="0.01" min="0.01" placeholder="Valor (R$)">
+        <div class="pix-input-group">
+            <input type="number" id="valorPix" name="valor" step="0.01" min="0.01" placeholder="Valor (R$)">
+            <button type="button" class="gerar" onclick="gerarQrPix()">Gerar QR Code</button>
+        </div>
 
-        <button type="button" class="gerar" onclick="gerarQrPix()">Gerar QR Code</button>
+        <!--<input type="number" id="valorPix" name="valor" step="0.01" min="0.01" placeholder="Valor (R$)">
+
+        <button type="button" class="gerar" onclick="gerarQrPix()">Gerar QR Code</button>-->
 
         <div id="m_mensagem" style="display:none;">Por favor, insira um valor válido!</div>
 
